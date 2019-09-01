@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Modal, Button, Tabs } from 'antd';
 
-class MaterialDetails extends React.Component {
+class MaterialDetails extends Component {
   state = { visible: false };
 
   showModal = () => {
@@ -35,7 +35,7 @@ class MaterialDetails extends React.Component {
           <p>Price: {unit_price}</p>
         </TabPane>
         <TabPane tab="Notes" key="3">
-          <p>Notes: {notes}</p>
+          <p>{notes}</p>
         </TabPane>
       </Tabs>
     );

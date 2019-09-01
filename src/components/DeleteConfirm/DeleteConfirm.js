@@ -15,7 +15,11 @@ export class DeleteConfirm extends Component {
           deleteProject(id)
         }
         if(type === 'room') {
+          console.log(id)
           deleteRoom(id, projectId)
+        }
+        if(type === 'material') {
+          //deleteMaterial()//
         }
       },
       onCancel() {},
