@@ -48,3 +48,8 @@ export const addRoom = (room) => ({
   type: 'ADD_ROOM',
   room
 });
+
+export const deleteMaterial = (id) => ({
+  type: 'DELETE_MATERIAL',
+  id
+})
