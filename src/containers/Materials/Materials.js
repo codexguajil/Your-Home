@@ -5,11 +5,9 @@ import Material from '../Material/Material';
 
 class Materials extends React.Component {
   state = { expanded: false };
-
   renderMaterialTypes = () => {
     const { materials } = this.props
     const types = Object.keys(materials)
-    
     return types.map((type, i) => {
       const Panel = Collapse.Panel;
       return(
@@ -24,7 +22,7 @@ class Materials extends React.Component {
     const { materials } = this.props
     return materials[type].map((material, i) => {
       return(
-        <Material {...material} key={i} />
+        <Material {...material} materialType={type} key={i} />
       )
     });
   }
