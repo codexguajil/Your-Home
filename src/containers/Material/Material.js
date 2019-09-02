@@ -13,7 +13,7 @@ class Material extends Component {
         <div className='material-control'>
           <MaterialDetails {...this.props}/>
           <EditMaterial {...this.props}/>
-          <DeleteConfirm type="material"/>
+          <DeleteConfirm type="material" {...this.props}/>
         </div>
       </div>
     );
