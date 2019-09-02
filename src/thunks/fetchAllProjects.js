@@ -76,13 +76,15 @@ export const deleteRoom = (id, projectId) => {
   }
 }
 
-export const deleteMaterial = (materialType, id) => {
+export const deleteMaterial = (materialType, id, rmid) => {
+  console.log(id, rmid)
   return async (dispatch) => {
+    console.log(id)
     const url = "https://hometrackr.herokuapp.com//api/v1/graphql"
     try {
       dispatch(isLoading(true));
       const response = await fetch(url, {
-        body: JSON.stringify({"query":`mutation{deleteRoomMaterial(id: "${id}" )}`
+        body: JSON.stringify({"query":`mutation{deleteRoomMaterial(id: ${rmid} )}`
       }),
         method: 'POST',
         headers: {
