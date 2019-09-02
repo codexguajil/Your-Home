@@ -23,6 +23,9 @@ const materials = (state = {}, action) => {
         state[type] = [newMaterial]
         return state
       }
+      case 'DELETE_MATERIAL':
+        state[action.materialType] = state[action.materialType].filter(material => material.id !== action.id)
+        return state
     default:
       return state
   }
