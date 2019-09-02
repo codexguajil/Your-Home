@@ -21,7 +21,7 @@ export class Room extends React.Component {
 
   render() {
     console.log(this.props)
-    const { name, type, description, materials, id, projectId } = this.props;
+    const { name , description, materials, id, projectId } = this.props;
     return (
       <div className='room'>
         <List
