@@ -19,6 +19,7 @@ export const fetchRoomMaterials = (id) => {
         throw Error(response.statusText)
       }
       const data = await response.json()
+      console.log(data.data)
       dispatch(isLoading(false))
       dispatch(setMaterials(data.data.getRoomsMaterials))
     } catch(error) {
