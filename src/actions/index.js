@@ -49,7 +49,8 @@ export const addRoom = (room) => ({
   room
 });
 
-export const deleteMaterial = (id) => ({
+export const deleteAMaterial = (materialType, id) => ({
   type: 'DELETE_MATERIAL',
+  materialType,
   id
 })
