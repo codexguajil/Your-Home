@@ -20,6 +20,7 @@ export class Room extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     const { name, type, description, materials, id, projectId } = this.props;
     return (
       <div className='room'>
@@ -51,8 +52,7 @@ export class Room extends React.Component {
           onClose={this.onClose}
           visible={this.state.visible}
         >
-          <Materials type={type}
-                     materials={materials}
+          <Materials materials={materials}
                      roomId={id}
           />
         </Drawer>
