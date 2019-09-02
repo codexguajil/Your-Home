@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'antd';
-import { deleteProject, deleteRoom } from '../../thunks/fetchAllProjects';
+import { deleteProject, deleteRoom, deleteMaterial } from '../../thunks/fetchAllProjects';
 import { connect } from 'react-redux';
 
 export class DeleteConfirm extends Component {
   
-  showConfirm(type, id, deleteProject, projectId, deleteRoom) {
+  showConfirm(type, id, deleteProject, projectId, deleteRoom, deleteMaterial, materialType) {
     const confirm = Modal.confirm;
     confirm({
       title: 'Are you sure you want to delete this item and all contents within?',
@@ -15,11 +15,10 @@ export class DeleteConfirm extends Component {
           deleteProject(id)
         }
         if(type === 'room') {
-          console.log(id)
           deleteRoom(id, projectId)
         }
         if(type === 'material') {
-          //deleteMaterial()//
+          deleteMaterial(materialType, id)
         }
       },
       onCancel() {},
@@ -27,9 +26,9 @@ export class DeleteConfirm extends Component {
   }
 
   render() {
-    const {id, type, deleteProject, projectId, deleteRoom} = this.props
+    const {id, type, deleteProject, projectId, deleteRoom, deleteMaterial, materialType} = this.props
     return (
-      <Button onClick={() => this.showConfirm(type, id, deleteProject, projectId, deleteRoom)} className='confirm-btn' type="link">
+      <Button onClick={() => this.showConfirm(type, id, deleteProject, projectId, deleteRoom, deleteMaterial, materialType)} className='confirm-btn' type="link">
         <i className="fas fa-trash-alt"></i>
       </Button>
     );
@@ -38,7 +37,8 @@ export class DeleteConfirm extends Component {
 
 export const mapDispatchToProps = dispatch => ({
   deleteProject: (id) => dispatch(deleteProject(id)),
-  deleteRoom: (id, projectId) => dispatch(deleteRoom(id, projectId))
+  deleteRoom: (id, projectId) => dispatch(deleteRoom(id, projectId)),
+  deleteMaterial: (materialType, id) => dispatch(deleteMaterial(materialType, id))
 })
 
 export const mapStateToProps = state => ({
