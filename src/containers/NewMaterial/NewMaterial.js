@@ -97,6 +97,7 @@ export class NewMaterial extends React.Component {
   }
 
   handleCreate = async () => {
+    //try to capture the material id to store into redux inside this function. Otherwise only able to delete after closing sidepane and opening again, meaning after refetching the materials from the back-end
     const { roomId } = this.props;
     const { name, type, brand, model, vendor, quantity, price, manual, notes } = this.state;
     const newMaterial = { name, type, brand, model, vendor, quantity, price, manual, notes };
